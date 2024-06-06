@@ -5,6 +5,7 @@ import cors from 'cors'
 
 import bookRoute from './route/book.route.js'
 import userRoute from './route/user.route.js'
+import dbConnection from "./configs/db.js"
 
 const app = express()
 
@@ -15,16 +16,7 @@ dotenv.config()
 const PORT = process.env.PORT || 4000
 
 const URI = process.env.MongoDBURI
-
-try {
-    mongoose.connect(URI)
-    mongoose.connection.on('open', () => {
-        console.log('mongoose connection successfully');
-    })
-} catch (error) {
-    console.log("error", error);
-}
-
+await dbConnection()
 app.use("/book", bookRoute)
 app.use("/user", userRoute)
 
