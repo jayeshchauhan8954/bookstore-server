@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-const { models } = require("../utils/constants/model")
+import models from "../utils/contants/model.js";
+
 const userSchema = mongoose.Schema({
     full_name: {
         type: String,
@@ -22,5 +23,6 @@ const userSchema = mongoose.Schema({
         required: true
     }
 })
-const User = mongoose.model(models, userSchema)
+const User = mongoose.model(models.user_model, userSchema)
+
 export default User

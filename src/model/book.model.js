@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { models } = require("../utils/constants/model")
+import models from "../utils/contants/model.js";
 
 const bookSchema = mongoose.Schema({
     name: {
@@ -27,5 +27,5 @@ const bookSchema = mongoose.Schema({
         required: true
     }
 })
-const Book = mongoose.model(models, bookSchema)
+const Book=mongoose.model(models.book_model,bookSchema)
 export default Book

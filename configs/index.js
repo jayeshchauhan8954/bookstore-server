@@ -1,6 +1,11 @@
-require("dotenv").config()
-
-module.exports={
- port:process.env.PORT,
- mongodbURI:process.env.MongoDBURI
+import dotenv from 'dotenv'
+dotenv.config()
+const configs = {
+    serverConfigs: {
+        PORT: process.env.PORT
+    },
+    dbConfigs: {
+        DB_URL: process.env.MongoDBURI
+    }
 }
+export default configs;
