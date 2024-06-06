@@ -16,14 +16,7 @@ const PORT = process.env.PORT || 4000
 
 const URI = process.env.MongoDBURI
 
-try {
-    mongoose.connect(URI)
-    mongoose.connection.on('open', () => {
-        console.log('mongoose connection successfully');
-    })
-} catch (error) {
-    console.log("error", error);
-}
+require('./configs/db.js')
 
 app.use("/book", bookRoute)
 app.use("/user", userRoute)
