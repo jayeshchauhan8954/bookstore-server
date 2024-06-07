@@ -25,7 +25,12 @@ const bookSchema = mongoose.Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+    category_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'category_model',
+        require: true
+    },
 })
-const Book=mongoose.model(models.book_model,bookSchema)
+const Book = mongoose.model(models.book_model, bookSchema)
 export default Book
