@@ -4,23 +4,23 @@ import models from "../utils/contants/model.js";
 const userSchema = mongoose.Schema({
     full_name: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
     },
     password: {
         type: String,
-        required: true
+        // required: true
     },
     contact_no: {
         type: Number,
-        required: true
+        // required: true
     },
     profile_image: {
         type: String,
-        required: true
+        // required: true
     }
 })
 const User = mongoose.model(models.user_model, userSchema)
