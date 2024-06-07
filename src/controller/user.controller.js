@@ -4,21 +4,21 @@ import bcryptjs from "bcryptjs"
 
 export const signup = async (req, res) => {
     try {
-        const { fullname, email, password } = req.body;
+        const { full_name, email, password } = req.body;
         const user = await User.findOne({ email })
         if (user) {
             return res.status(400).send({ message: "user already exist" })
         }
         const hashedPassword = await bcryptjs.hash(password, 10)
         const createdUser = new User({
-            fullname,
+            full_name,
             email,
             password: hashedPassword
         })
         await createdUser.save()
         return res.status(201).send({ message: "user created successfully",user:{
             _id:createdUser._id,
-            fullname:createdUser.fullname,
+            full_name:createdUser.full_name,
             email:createdUser.email
         } })
 
@@ -44,7 +44,7 @@ export const login = async (req, res) => {
         else{
             return res.status(200).send({message:"login successfully",user:{
                 _id:user._id,
-                fullname:user.fullname,
+                full_name:user.full_name,
                 email:user.email
             }})        
         }
